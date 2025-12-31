@@ -1,0 +1,39 @@
+{
+  "_format": "hh3-sol-build-info-1",
+  "id": "solc-0_8_28-bc669db5821199a945ae46213b20600533eb7355",
+  "solcVersion": "0.8.28",
+  "solcLongVersion": "0.8.28+commit.7893614a",
+  "userSourceNameMap": {
+    "contracts/ZKVerifier.sol": "project/contracts/ZKVerifier.sol"
+  },
+  "input": {
+    "language": "Solidity",
+    "settings": {
+      "evmVersion": "cancun",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "outputSelection": {
+        "*": {
+          "": [
+            "ast"
+          ],
+          "*": [
+            "abi",
+            "evm.bytecode",
+            "evm.deployedBytecode",
+            "evm.methodIdentifiers",
+            "metadata"
+          ]
+        }
+      },
+      "remappings": []
+    },
+    "sources": {
+      "project/contracts/ZKVerifier.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.28;\r\n\r\n/**\r\n * @title ZKVerifier\r\n * @notice Verifies zero-knowledge login proofs and manages user identities\r\n * @dev Prevents Sybil attacks by ensuring one-person-one-vote\r\n */\r\ncontract ZKVerifier {\r\n    \r\n    // ============ Events ============\r\n    \r\n    event UserVerified(bytes32 indexed zkHash, address indexed userAddress, uint256 timestamp);\r\n    event UserRevoked(bytes32 indexed zkHash, address indexed userAddress, uint256 timestamp);\r\n    \r\n    // ============ State Variables ============\r\n    \r\n    /// @notice Mapping of ZK identity hash to verification status\r\n    mapping(bytes32 => bool) public verifiedUsers;\r\n    \r\n    /// @notice Mapping of ZK identity hash to associated address\r\n    mapping(bytes32 => address) public zkHashToAddress;\r\n    \r\n    /// @notice Mapping of address to ZK identity hash\r\n    mapping(address => bytes32) public addressToZkHash;\r\n    \r\n    /// @notice Total number of verified users\r\n    uint256 public totalVerifiedUsers;\r\n    \r\n    /// @notice Owner address for admin functions\r\n    address public owner;\r\n    \r\n    // ============ Modifiers ============\r\n    \r\n    modifier onlyOwner() {\r\n        require(msg.sender == owner, \"Only owner can call this function\");\r\n        _;\r\n    }\r\n    \r\n    // ============ Constructor ============\r\n    \r\n    constructor() {\r\n        owner = msg.sender;\r\n    }\r\n    \r\n    // ============ Core Functions ============\r\n    \r\n    /**\r\n     * @notice Verifies a ZK proof and registers the user\r\n     * @param zkHash The zero-knowledge hash representing the user's identity\r\n     * @param proof The ZK proof data (simplified for MVP)\r\n     * @dev In production, this would verify actual ZK proofs using zk-SNARKs\r\n     */\r\n    function verifyAndRegister(bytes32 zkHash, bytes calldata proof) external {\r\n        require(zkHash != bytes32(0), \"Invalid ZK hash\");\r\n        require(!verifiedUsers[zkHash], \"User already verified\");\r\n        require(addressToZkHash[msg.sender] == bytes32(0), \"Address already has identity\");\r\n        \r\n        // Simplified proof verification for MVP\r\n        // In production: verify zk-SNARK proof using a verifier contract\r\n        require(_verifyProof(zkHash, proof), \"Invalid proof\");\r\n        \r\n        // Register the user\r\n        verifiedUsers[zkHash] = true;\r\n        zkHashToAddress[zkHash] = msg.sender;\r\n        addressToZkHash[msg.sender] = zkHash;\r\n        totalVerifiedUsers++;\r\n        \r\n        emit UserVerified(zkHash, msg.sender, block.timestamp);\r\n    }\r\n    \r\n    /**\r\n     * @notice Internal function to verify the ZK proof\r\n     * @param zkHash The ZK identity hash\r\n     * @param proof The proof data\r\n     * @return bool Whether the proof is valid\r\n     * @dev Simplified for MVP - replace with actual ZK verification logic\r\n     */\r\n    function _verifyProof(bytes32 zkHash, bytes calldata proof) internal pure returns (bool) {\r\n        // MVP: Basic validation\r\n        // Production: Use Groth16/PLONK verifier\r\n        if (proof.length < 32) return false;\r\n        \r\n        // Simple check: proof should contain some relation to zkHash\r\n        // This is a placeholder - replace with real ZK proof verification\r\n        bytes32 proofHash = keccak256(proof);\r\n        return proofHash != bytes32(0) && zkHash != bytes32(0);\r\n    }\r\n    \r\n    /**\r\n     * @notice Checks if a ZK identity is verified\r\n     * @param zkHash The ZK identity hash to check\r\n     * @return bool Whether the identity is verified\r\n     */\r\n    function isVerified(bytes32 zkHash) external view returns (bool) {\r\n        return verifiedUsers[zkHash];\r\n    }\r\n    \r\n    /**\r\n     * @notice Gets the ZK hash for an address\r\n     * @param userAddress The address to look up\r\n     * @return bytes32 The ZK identity hash\r\n     */\r\n    function getZkHash(address userAddress) external view returns (bytes32) {\r\n        return addressToZkHash[userAddress];\r\n    }\r\n    \r\n    /**\r\n     * @notice Gets the address for a ZK hash\r\n     * @param zkHash The ZK identity hash to look up\r\n     * @return address The associated address\r\n     */\r\n    function getAddress(bytes32 zkHash) external view returns (address) {\r\n        return zkHashToAddress[zkHash];\r\n    }\r\n    \r\n    // ============ Admin Functions ============\r\n    \r\n    /**\r\n     * @notice Revokes a user's verification (admin only)\r\n     * @param zkHash The ZK identity hash to revoke\r\n     * @dev Use for moderation or dispute resolution\r\n     */\r\n    function revokeVerification(bytes32 zkHash) external onlyOwner {\r\n        require(verifiedUsers[zkHash], \"User not verified\");\r\n        \r\n        address userAddress = zkHashToAddress[zkHash];\r\n        \r\n        verifiedUsers[zkHash] = false;\r\n        delete zkHashToAddress[zkHash];\r\n        delete addressToZkHash[userAddress];\r\n        totalVerifiedUsers--;\r\n        \r\n        emit UserRevoked(zkHash, userAddress, block.timestamp);\r\n    }\r\n    \r\n    /**\r\n     * @notice Transfers ownership of the contract\r\n     * @param newOwner The address of the new owner\r\n     */\r\n    function transferOwnership(address newOwner) external onlyOwner {\r\n        require(newOwner != address(0), \"Invalid new owner\");\r\n        owner = newOwner;\r\n    }\r\n}"
+      }
+    }
+  }
+}
