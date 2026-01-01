@@ -243,9 +243,8 @@ castVote(newsId, voteType)
 getVoteCounts(newsId)
 haveIVoted(newsId)
 
-// ConsensusEngine
-getResult(newsId)
-calculateVerdict(newsId)
+// Consensus calculated client-side in scoreCalculation.ts
+// No ConsensusEngine contract calls needed
 
 // ZKVerifier
 verifyAndRegister(zkHash, proof)

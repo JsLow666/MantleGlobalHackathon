@@ -91,13 +91,13 @@ Build a ZK-powered, AI-assisted decentralized news validation platform on Mantle
 - [ ] Add vote retrieval functions
 - [ ] Write unit tests
 
-#### ConsensusEngine.sol (Days 11-12)
-- [ ] Define consensus algorithm (weighted average of AI + community)
-- [ ] Implement `calculateVerdict()` function
-- [ ] Set AI weight vs community weight parameters
-- [ ] Define verdict thresholds (e.g., >60% = Real, <40% = Fake)
-- [ ] Store final verdict on-chain
-- [ ] Emit VerdictFinalized event
+#### Consensus Calculation (Client-Side) - Days 11-12
+- [ ] Implement consensus algorithm in frontend (weighted average of AI + community)
+- [ ] Create `calculateConsensus()` function in `scoreCalculation.ts`
+- [ ] Set AI weight vs community weight parameters (40% AI, 60% community)
+- [ ] Define verdict thresholds (>65% = Real, <35% = Fake, 36-64% = Uncertain)
+- [ ] Implement real-time consensus updates after votes
+- [ ] Add confidence scoring based on vote count and agreement
 - [ ] Write unit tests
 
 ### 2.2 Contract Integration & Testing

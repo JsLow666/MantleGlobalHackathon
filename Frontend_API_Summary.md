@@ -273,45 +273,6 @@ struct VoteCounts {
 **Output**:
 - Returns: `bool` - Whether user has voted
 
-### 4. Consensus Engine (ConsensusEngine Contract)
-
-#### `calculateVerdict(uint256 newsId)`
-**Purpose**: Calculate consensus verdict combining AI and community votes.
-
-**Input**:
-- `newsId`: `uint256` - News ID
-
-**Output**: None (updates internal state, emits event)
-
-#### `getResult(uint256 newsId)`
-**Purpose**: Get consensus result for news.
-
-**Input**:
-- `newsId`: `uint256` - News ID
-
-**Output**:
-```solidity
-struct ConsensusResult {
-  uint256 newsId;
-  Verdict verdict; // 0=Pending, 1=Real, 2=Fake, 3=Uncertain, 4=Disputed
-  uint256 aiScore;
-  uint256 communityScore;
-  uint256 finalScore;
-  uint256 confidence;
-  uint256 timestamp;
-  bool finalized;
-}
-```
-
-#### `getVerdict(uint256 newsId)`
-**Purpose**: Get current verdict for news.
-
-**Input**:
-- `newsId`: `uint256` - News ID
-
-**Output**:
-- Returns: `Verdict` - Current verdict
-
 ## Frontend Integration Flow
 
 ### 1. User Registration Flow
@@ -330,23 +291,23 @@ struct ConsensusResult {
 1. Call `NewsRegistry.getTotalNews()` to get count
 2. Call `NewsRegistry.getNewsList(offset, limit)` for pagination
 3. For each news ID, call `NewsRegistry.getNews(newsId)` for details
-4. Optionally call `ConsensusEngine.getResult(newsId)` for verdict
+4. Consensus is calculated client-side using AI score and vote counts
 
 ### 4. Voting Flow
 1. Check if user voted: `VoteManager.haveIVoted(newsId)`
 2. If not voted, call `VoteManager.castVote(newsId, voteType)`
 3. Get vote counts: `VoteManager.getVoteCounts(newsId)`
-4. Update consensus: `ConsensusEngine.calculateVerdict(newsId)`
+4. Consensus is automatically recalculated client-side after each vote
 
 ## Contract Addresses (Mantle Sepolia Testnet)
 - ZKVerifier: `0x99b690CffeE0B2Fc4fA7c7c6377fA894acc1170f`
 - NewsRegistry: `0x844e20a6dB15Acf7EeF25fcB7a131D5De3Ff5328`
 - VoteManager: `0x0a032A4de0A549b4957A8077dd886339ff721fd9`
-- ConsensusEngine: `0x9bE88670249a13ceE4BB886013d17e3aD653D9d6`
 
 ## Notes
 - Backend handles AI analysis only (no gas costs)
 - Users pay gas for blockchain submissions
+- Consensus is calculated client-side using AI score and community votes
 - All blockchain functions require verified users (ZK proof)
 - Vote changes are allowed by default
 - Consensus combines AI (40%) and community (60%) scores</content>

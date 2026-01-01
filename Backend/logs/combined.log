@@ -434,3 +434,40 @@
 {"ip":"::1","level":"info","message":"GET /api/analyze/content/0xd4b5bd67fe1bebda3443ac452e70afaae5c646c6670699b07fd98ec6b036c24b","timestamp":"2025-12-31 14:44:16","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"}
 {"hash":"0xd4b5bd67fe1bebda3443ac452e70afaae5c646c6670699b07fd98ec6b036c24b","level":"info","message":"🔍 Retrieving content by hash","timestamp":"2025-12-31 14:44:16"}
 {"hash":"0xd4b5bd67fe1bebda3443ac452e70afaae5c646c6670699b07fd98ec6b036c24b","level":"info","message":"📖 Content retrieved","timestamp":"2025-12-31 14:44:16"}
+{"ip":"::1","level":"info","message":"GET /api/analyze/content/0xd4b5bd67fe1bebda3443ac452e70afaae5c646c6670699b07fd98ec6b036c24b","timestamp":"2025-12-31 14:59:28","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"}
+{"hash":"0xd4b5bd67fe1bebda3443ac452e70afaae5c646c6670699b07fd98ec6b036c24b","level":"info","message":"🔍 Retrieving content by hash","timestamp":"2025-12-31 14:59:28"}
+{"hash":"0xd4b5bd67fe1bebda3443ac452e70afaae5c646c6670699b07fd98ec6b036c24b","level":"info","message":"📖 Content retrieved","timestamp":"2025-12-31 14:59:28"}
+{"ip":"::1","level":"info","message":"GET /api/analyze/content/0xd4b5bd67fe1bebda3443ac452e70afaae5c646c6670699b07fd98ec6b036c24b","timestamp":"2025-12-31 14:59:28","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"}
+{"hash":"0xd4b5bd67fe1bebda3443ac452e70afaae5c646c6670699b07fd98ec6b036c24b","level":"info","message":"🔍 Retrieving content by hash","timestamp":"2025-12-31 14:59:28"}
+{"hash":"0xd4b5bd67fe1bebda3443ac452e70afaae5c646c6670699b07fd98ec6b036c24b","level":"info","message":"📖 Content retrieved","timestamp":"2025-12-31 14:59:28"}
+{"level":"info","message":"📂 Loaded 2 stored content items from disk","timestamp":"2025-12-31 15:10:21"}
+{"level":"info","message":"🚀 ProofFeed Backend v2.0 running on port 3000","timestamp":"2025-12-31 15:10:21"}
+{"level":"info","message":"📍 Environment: development","timestamp":"2025-12-31 15:10:21"}
+{"level":"info","message":"🤖 AI Provider: Google Gemini 1.5 Flash","timestamp":"2025-12-31 15:10:21"}
+{"level":"info","message":"","timestamp":"2025-12-31 15:10:21"}
+{"level":"info","message":"✨ Architecture: Backend provides Gemini AI analysis only","timestamp":"2025-12-31 15:10:21"}
+{"level":"info","message":"   💰 Users pay gas when submitting to blockchain","timestamp":"2025-12-31 15:10:21"}
+{"level":"info","message":"   🔥 Backend has NO gas costs","timestamp":"2025-12-31 15:10:21"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","timestamp":"2025-12-31 15:10:41"}
+{"level":"info","message":"📂 Loaded 2 stored content items from disk","timestamp":"2025-12-31 15:10:51"}
+{"level":"info","message":"🚀 ProofFeed Backend v2.0 running on port 3000","timestamp":"2025-12-31 15:10:51"}
+{"level":"info","message":"📍 Environment: development","timestamp":"2025-12-31 15:10:51"}
+{"level":"info","message":"🤖 AI Provider: Google Gemini 1.5 Flash","timestamp":"2025-12-31 15:10:51"}
+{"level":"info","message":"","timestamp":"2025-12-31 15:10:51"}
+{"level":"info","message":"✨ Architecture: Backend provides Gemini AI analysis only","timestamp":"2025-12-31 15:10:51"}
+{"level":"info","message":"   💰 Users pay gas when submitting to blockchain","timestamp":"2025-12-31 15:10:51"}
+{"level":"info","message":"   🔥 Backend has NO gas costs","timestamp":"2025-12-31 15:10:51"}
+{"ip":"::1","level":"info","message":"GET /api/analyze/content/0xd4b5bd67fe1bebda3443ac452e70afaae5c646c6670699b07fd98ec6b036c24b","timestamp":"2025-12-31 15:11:34","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"}
+{"hash":"0xd4b5bd67fe1bebda3443ac452e70afaae5c646c6670699b07fd98ec6b036c24b","level":"info","message":"🔍 Retrieving content by hash","timestamp":"2025-12-31 15:11:34"}
+{"hash":"0xd4b5bd67fe1bebda3443ac452e70afaae5c646c6670699b07fd98ec6b036c24b","level":"info","message":"📖 Content retrieved","timestamp":"2025-12-31 15:11:34"}
+{"ip":"::1","level":"info","message":"GET /api/analyze/content/0xd4b5bd67fe1bebda3443ac452e70afaae5c646c6670699b07fd98ec6b036c24b","timestamp":"2025-12-31 15:11:34","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"}
+{"hash":"0xd4b5bd67fe1bebda3443ac452e70afaae5c646c6670699b07fd98ec6b036c24b","level":"info","message":"🔍 Retrieving content by hash","timestamp":"2025-12-31 15:11:34"}
+{"hash":"0xd4b5bd67fe1bebda3443ac452e70afaae5c646c6670699b07fd98ec6b036c24b","level":"info","message":"📖 Content retrieved","timestamp":"2025-12-31 15:11:34"}
+{"level":"info","message":"📂 Loaded 2 stored content items from disk","timestamp":"2025-12-31 16:12:26"}
+{"level":"info","message":"🚀 ProofFeed Backend v2.0 running on port 3000","timestamp":"2025-12-31 16:12:26"}
+{"level":"info","message":"📍 Environment: development","timestamp":"2025-12-31 16:12:26"}
+{"level":"info","message":"🤖 AI Provider: Google Gemini 1.5 Flash","timestamp":"2025-12-31 16:12:26"}
+{"level":"info","message":"","timestamp":"2025-12-31 16:12:26"}
+{"level":"info","message":"✨ Architecture: Backend provides Gemini AI analysis only","timestamp":"2025-12-31 16:12:26"}
+{"level":"info","message":"   💰 Users pay gas when submitting to blockchain","timestamp":"2025-12-31 16:12:26"}
+{"level":"info","message":"   🔥 Backend has NO gas costs","timestamp":"2025-12-31 16:12:26"}

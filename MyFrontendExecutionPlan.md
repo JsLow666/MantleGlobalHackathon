@@ -79,7 +79,7 @@ Frontend/
 - **Contracts:**
   - NewsRegistry: Submit news with AI score
   - VoteManager: Cast votes on news
-  - ConsensusEngine: Get final verdicts
+  - Consensus calculated client-side (no contract)
   - ZKVerifier: User verification
 
 ## Development Phases
@@ -133,7 +133,7 @@ Frontend/
 2. Implement vote casting via VoteManager contract
 3. Display vote counts and user's vote
 4. Create VerdictBadge component
-5. Integrate with ConsensusEngine for verdicts
+5. Integrate client-side consensus calculation
 6. Handle vote changes and restrictions
 7. Test voting functionality
 

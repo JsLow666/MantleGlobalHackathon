@@ -1,6 +1,5 @@
 {
   "ProofFeedDeploymentModule#ZKVerifier": "0x99b690CffeE0B2Fc4fA7c7c6377fA894acc1170f",
   "ProofFeedDeploymentModule#NewsRegistry": "0x844e20a6dB15Acf7EeF25fcB7a131D5De3Ff5328",
-  "ProofFeedDeploymentModule#VoteManager": "0x0a032A4de0A549b4957A8077dd886339ff721fd9",
-  "ProofFeedDeploymentModule#ConsensusEngine": "0x9bE88670249a13ceE4BB886013d17e3aD653D9d6"
+  "ProofFeedDeploymentModule#VoteManager": "0x0a032A4de0A549b4957A8077dd886339ff721fd9"
 }

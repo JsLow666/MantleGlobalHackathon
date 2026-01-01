@@ -69,7 +69,7 @@ const NewsDetail = ({ newsId }: NewsDetailProps) => {
         ...newsItem,
         voteCounts,
         verdict,
-        consensusResult: consensusResult || undefined,
+        // consensusResult: consensusResult || undefined,
         fullContent,
         dynamicScore: calculateDynamicScore(newsItem.aiScore, voteCounts),
       };

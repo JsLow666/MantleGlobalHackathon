@@ -103,6 +103,20 @@ const UserProfile = () => {
         setStats(userStats);
       } catch (error) {
         console.error('Failed to fetch user stats:', error);
+        // Set default stats for new users or when there's an error
+        const defaultStats: UserStats = {
+          totalVotes: 0,
+          realVotes: 0,
+          fakeVotes: 0,
+          uncertainVotes: 0,
+          articlesSubmitted: 0,
+          reputation: 0,
+          accuracy: 0,
+          rank: 'Novice',
+          joinDate: Date.now(),
+          lastActivity: Date.now()
+        };
+        setStats(defaultStats);
       } finally {
         setLoading(false);
       }
