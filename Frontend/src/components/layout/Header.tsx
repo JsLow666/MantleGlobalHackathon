@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Newspaper, Plus, Info, BarChart3, Search, User, Activity, Vote } from 'lucide-react';
+import { Newspaper, Plus, Info, BarChart3, Search, Activity, Vote } from 'lucide-react';
 import ConnectWallet from '../wallet/ConnectWallet';
 
 const Header = () => {
@@ -23,10 +23,6 @@ const Header = () => {
             <Link to="/search" className="flex items-center space-x-1 text-gray-600 hover:text-gray-900 transition-colors">
               <Search className="h-4 w-4" />
               <span>Search</span>
-            </Link>
-            <Link to="/profile" className="flex items-center space-x-1 text-gray-600 hover:text-gray-900 transition-colors">
-              <User className="h-4 w-4" />
-              <span>Profile</span>
             </Link>
             <Link to="/performance" className="flex items-center space-x-1 text-gray-600 hover:text-gray-900 transition-colors">
               <Activity className="h-4 w-4" />

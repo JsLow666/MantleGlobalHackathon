@@ -11,7 +11,6 @@ import Submit from './pages/Submit';
 import NewsDetail from './pages/NewsDetail';
 import About from './pages/About';
 import Search from './pages/Search';
-import Profile from './pages/Profile';
 import Performance from './pages/Performance';
 import Governance from './pages/Governance';
 
@@ -31,7 +30,6 @@ function AppContent() {
           <Route path="/news/:id" element={<NewsDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/profile" element={<Profile />} />
           <Route path="/performance" element={<Performance />} />
           <Route path="/governance" element={<Governance />} />
         </Routes>

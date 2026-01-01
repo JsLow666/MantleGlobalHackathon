@@ -117,7 +117,6 @@ export const useLazyLoad = (ref: React.RefObject<Element>, options?: Intersectio
 
 // Bundle optimization - dynamic imports for heavy components
 export const loadAdvancedSearch = () => import('../components/search/AdvancedSearch');
-export const loadUserProfile = () => import('../components/profile/UserProfile');
 
 // Performance monitoring hook
 export const usePerformanceMonitor = (componentName: string) => {
