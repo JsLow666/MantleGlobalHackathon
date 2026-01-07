@@ -167,3 +167,20 @@ Mantle serves as the **final settlement and trust layer** for news validation.
 ProofFeed demonstrates how **AI, human judgment, and blockchain** can work together to improve transparency around online information.
 
 Built on Mantle, it serves as an open experiment in creating verifiable credibility signals — without sacrificing privacy or decentralization.
+
+
+---
+
+## 🏃‍♂️ Steps to Run Locally
+
+Follow these steps to run the ProofFeed project on your machine:
+
+cd Frontend
+npm install
+npm run dev
+
+Open Another terminal
+
+cd Backend
+npm install
+npm run dev
