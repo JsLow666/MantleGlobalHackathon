@@ -175,12 +175,12 @@ Built on Mantle, it serves as an open experiment in creating verifiable credibil
 
 Follow these steps to run the ProofFeed project on your machine:
 
-cd Frontend
-npm install
-npm run dev
+- cd Frontend
+- npm install
+- npm run dev
 
 Open Another terminal
 
-cd Backend
-npm install
-npm run dev
+- cd Backend
+- npm install
+- npm run dev
