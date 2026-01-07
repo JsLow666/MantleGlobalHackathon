@@ -129,12 +129,17 @@ const VotePanel = ({ newsId }: VotePanelProps) => {
     }
   };
 
+  const cardBg = "bg-gray-800";
+  const borderColor = "border-gray-700";
+  const textColor = "text-gray-200";
+  const textMuted = "text-gray-400";
+
   if (loading) {
     return (
-      <div className="bg-gray-50 border border-gray-200 rounded-md p-4">
+      <div className={`${cardBg} ${borderColor} border rounded-md p-4`}>
         <div className="flex items-center space-x-2">
-          <Loader2 className="h-4 w-4 animate-spin" />
-          <span className="text-sm text-gray-600">Loading vote status...</span>
+          <Loader2 className="h-4 w-4 animate-spin text-blue-400" />
+          <span className={`text-sm ${textMuted}`}>Loading vote status...</span>
         </div>
       </div>
     );
@@ -142,8 +147,8 @@ const VotePanel = ({ newsId }: VotePanelProps) => {
 
   if (!account) {
     return (
-      <div className="bg-yellow-50 border border-yellow-200 rounded-md p-4">
-        <div className="flex items-center space-x-2 text-yellow-800">
+      <div className={`${cardBg} ${borderColor} border rounded-md p-4`}>
+        <div className="flex items-center space-x-2 text-yellow-400">
           <AlertCircle className="h-5 w-5" />
           <span>Connect your wallet to vote on this news.</span>
         </div>
@@ -153,8 +158,8 @@ const VotePanel = ({ newsId }: VotePanelProps) => {
 
   if (!isVerified) {
     return (
-      <div className="bg-orange-50 border border-orange-200 rounded-md p-4">
-        <div className="flex items-center space-x-2 text-orange-800">
+      <div className={`${cardBg} ${borderColor} border rounded-md p-4`}>
+        <div className="flex items-center space-x-2 text-orange-400">
           <AlertCircle className="h-5 w-5" />
           <span>Verify your identity with ZK proof to vote.</span>
         </div>
@@ -164,59 +169,53 @@ const VotePanel = ({ newsId }: VotePanelProps) => {
 
   if (hasVoted) {
     return (
-      <div className="bg-gray-50 border border-gray-200 rounded-md p-4">
-        <p className="text-sm text-gray-600 mb-2">
-          Your vote: <strong className={getVoteColor(userVote)}>{getVoteLabel(userVote)}</strong>
+      <div className={`${cardBg} ${borderColor} border rounded-md p-4`}>
+        <p className={`text-sm ${textColor} mb-2`}>
+          Your vote:{" "}
+          <strong className={getVoteColor(userVote)}>{getVoteLabel(userVote)}</strong>
         </p>
-        <p className="text-xs text-gray-500">You can only vote once per news item.</p>
+        <p className={`text-xs ${textMuted}`}>You can only vote once per news item.</p>
       </div>
     );
   }
 
   return (
-    <div className="bg-gray-50 border border-gray-200 rounded-md p-4">
-      <h3 className="font-medium text-gray-900 mb-3">Cast your vote on this news:</h3>
+    <div className={`${cardBg} ${borderColor} border rounded-md p-4`}>
+      <h3 className={`font-medium ${textColor} mb-3`}>
+        Cast your vote on this news:
+      </h3>
       <div className="flex flex-wrap gap-3">
+        {/* Real */}
         <button
           onClick={() => handleVote(VoteType.Real)}
           disabled={isVoting}
           className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 disabled:opacity-50 text-white px-4 py-2 rounded-md transition-colors"
         >
-          {isVoting ? (
-            <Loader2 className="h-4 w-4 animate-spin" />
-          ) : (
-            <ThumbsUp className="h-4 w-4" />
-          )}
+          {isVoting ? <Loader2 className="h-4 w-4 animate-spin" /> : <ThumbsUp className="h-4 w-4" />}
           <span>Real</span>
         </button>
 
+        {/* Fake */}
         <button
           onClick={() => handleVote(VoteType.Fake)}
           disabled={isVoting}
           className="flex items-center space-x-2 bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white px-4 py-2 rounded-md transition-colors"
         >
-          {isVoting ? (
-            <Loader2 className="h-4 w-4 animate-spin" />
-          ) : (
-            <ThumbsDown className="h-4 w-4" />
-          )}
+          {isVoting ? <Loader2 className="h-4 w-4 animate-spin" /> : <ThumbsDown className="h-4 w-4" />}
           <span>Fake</span>
         </button>
 
+        {/* Uncertain */}
         <button
           onClick={() => handleVote(VoteType.Uncertain)}
           disabled={isVoting}
           className="flex items-center space-x-2 bg-yellow-600 hover:bg-yellow-700 disabled:opacity-50 text-white px-4 py-2 rounded-md transition-colors"
         >
-          {isVoting ? (
-            <Loader2 className="h-4 w-4 animate-spin" />
-          ) : (
-            <HelpCircle className="h-4 w-4" />
-          )}
+          {isVoting ? <Loader2 className="h-4 w-4 animate-spin" /> : <HelpCircle className="h-4 w-4" />}
           <span>Uncertain</span>
         </button>
       </div>
-      <p className="text-xs text-gray-500 mt-2">
+      <p className={`text-xs ${textMuted} mt-2`}>
         Your vote will be recorded on the blockchain and contribute to the community consensus.
       </p>
     </div>

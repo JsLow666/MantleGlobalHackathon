@@ -204,19 +204,16 @@ const AdvancedSearch = () => {
 
   return (
     <div className="space-y-6">
-      {/* Search and Filters */}
-      <div className="bg-white rounded-lg shadow-md p-6">
-        <div className="flex items-center space-x-2 mb-4">
-          <Search className="h-5 w-5 text-gray-600" />
-          <h2 className="text-lg font-semibold text-gray-900">Advanced Search & Filters</h2>
-        </div>
+      {/* Filters */}
+      <div className="bg-black/40 backdrop-blur-xl border border-cyan-400/20 rounded-2xl p-6 shadow-[0_0_40px_rgba(34,211,238,0.12)]">
+        <h2 className="text-lg font-semibold text-gray-100 tracking-wide">
+          <Search className="h-5 w-5 text-cyan-400"  /> Advanced Search & Filters
+        </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-          {/* Text Search */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+          {/* Search */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Search
-            </label>
+            <label className="block text-sm font-medium text-cyan-400 mb-1">Search</label>
             <input
               type="text"
               placeholder="Title or source URL..."
@@ -226,14 +223,14 @@ const AdvancedSearch = () => {
             />
           </div>
 
-          {/* Verdict Filter */}
+          {/* Verdict */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Verdict
-            </label>
+            <label className="block text-sm font-medium text-cyan-400 mb-1">Verdict</label>
             <select
               value={filters.verdict}
-              onChange={(e) => updateFilter('verdict', e.target.value === 'all' ? 'all' : parseInt(e.target.value))}
+              onChange={(e) =>
+                updateFilter('verdict', e.target.value === 'all' ? 'all' : parseInt(e.target.value))
+              }
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="all">All Verdicts</option>
@@ -244,11 +241,9 @@ const AdvancedSearch = () => {
             </select>
           </div>
 
-          {/* Vote Range */}
+          {/* Min Votes */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Min Votes
-            </label>
+            <label className="block text-sm font-medium text-cyan-400 mb-1">Min Votes</label>
             <input
               type="number"
               min="0"
@@ -258,10 +253,9 @@ const AdvancedSearch = () => {
             />
           </div>
 
+          {/* Max Votes */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Max Votes
-            </label>
+            <label className="block text-sm font-medium text-cyan-400 mb-1">Max Votes</label>
             <input
               type="number"
               min="0"
@@ -272,12 +266,10 @@ const AdvancedSearch = () => {
           </div>
         </div>
 
+        {/* Submitter and Dates */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-          {/* Submitter */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Submitter Address
-            </label>
+            <label className="block text-sm font-medium text-cyan-400 mb-1">Submitter</label>
             <input
               type="text"
               placeholder="0x..."
@@ -287,11 +279,8 @@ const AdvancedSearch = () => {
             />
           </div>
 
-          {/* Date From */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              From Date
-            </label>
+            <label className="block text-sm font-medium text-cyan-400 mb-1">From Date</label>
             <input
               type="date"
               value={filters.dateFrom}
@@ -299,12 +288,8 @@ const AdvancedSearch = () => {
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-
-          {/* Date To */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              To Date
-            </label>
+            <label className="block text-sm font-medium text-cyan-400 mb-1">To Date</label>
             <input
               type="date"
               value={filters.dateTo}
@@ -314,10 +299,10 @@ const AdvancedSearch = () => {
           </div>
         </div>
 
-        {/* Sort Options */}
+        {/* Sort & Clear */}
         <div className="flex flex-wrap items-center gap-4 mb-4">
           <div className="flex items-center space-x-2">
-            <label className="text-sm font-medium text-gray-700">Sort by:</label>
+            <label className="block text-sm font-medium text-cyan-400 mb-1">Sort by:</label>
             <select
               value={filters.sortBy}
               onChange={(e) => updateFilter('sortBy', e.target.value)}
@@ -334,17 +319,13 @@ const AdvancedSearch = () => {
             onClick={() => updateFilter('sortOrder', filters.sortOrder === 'asc' ? 'desc' : 'asc')}
             className="flex items-center space-x-1 px-3 py-1 border border-gray-300 rounded-md hover:bg-gray-50"
           >
-            {filters.sortOrder === 'asc' ? (
-              <SortAsc className="h-4 w-4" />
-            ) : (
-              <SortDesc className="h-4 w-4" />
-            )}
+            {filters.sortOrder === 'asc' ? <SortAsc className="h-4 w-4" /> : <SortDesc className="h-4 w-4" />}
             <span className="text-sm">{filters.sortOrder === 'asc' ? 'Ascending' : 'Descending'}</span>
           </button>
 
           <button
             onClick={clearFilters}
-            className="px-4 py-2 text-sm text-gray-600 hover:text-gray-800 border border-gray-300 rounded-md hover:bg-gray-50"
+            className="flex items-center space-x-1 px-3 py-1 border border-gray-300 rounded-md hover:bg-gray-50"
           >
             Clear Filters
           </button>
@@ -387,22 +368,25 @@ const AdvancedSearch = () => {
           </div>
         ) : (
           filteredAndSortedNews.map((news) => (
-            <div key={news.id} className="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow">
-              <div className="flex items-start justify-between mb-2">
-                <h3 className="text-lg font-semibold text-gray-900 line-clamp-2">
-                  {news.title}
-                </h3>
-                <span className={`px-2 py-1 text-xs font-medium rounded-full ${
-                  news.verdict === Verdict.Real ? 'bg-green-100 text-green-800' :
-                  news.verdict === Verdict.Fake ? 'bg-red-100 text-red-800' :
-                  news.verdict === Verdict.Uncertain ? 'bg-yellow-100 text-yellow-800' :
-                  'bg-gray-100 text-gray-800'
-                }`}>
+            <div key={news.id} className="bg-black/40 backdrop-blur-xl border border-gray-700/40 rounded-xl p-5 hover:border-cyan-400/40 transition">
+              <div className="flex items-start justify-between mb-3">
+                <h3 className="text-lg font-semibold text-gray-100 line-clamp-2">{news.title}</h3>
+                <span
+                  className={`px-3 py-1 text-xs font-semibold rounded-full ${
+                    news.verdict === Verdict.Real
+                      ? 'bg-green-500/20 text-green-400'
+                      : news.verdict === Verdict.Fake
+                      ? 'bg-red-500/20 text-red-400'
+                      : news.verdict === Verdict.Uncertain
+                      ? 'bg-yellow-500/20 text-yellow-400'
+                      : 'bg-gray-500/20 text-gray-300'
+                  }`}
+                >
                   {getVerdictLabel(news.verdict)}
                 </span>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-gray-600 mb-3">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-gray-400 mb-3">
                 <div className="flex items-center space-x-1">
                   <Award className={`h-4 w-4 ${getConfidenceColor(news.dynamicScore.confidence)}`} />
                   <span>Score: {news.dynamicScore.dynamicScore}/100</span>
@@ -416,9 +400,7 @@ const AdvancedSearch = () => {
                   <span>{new Date(news.timestamp * 1000).toLocaleDateString()}</span>
                 </div>
                 <div>
-                  <span className="font-mono text-xs bg-gray-100 px-1 py-0.5 rounded">
-                    ID: {news.id}
-                  </span>
+                  <span className="font-mono text-xs bg-gray-800 px-2 py-0.5 rounded">ID: {news.id}</span>
                 </div>
               </div>
 
@@ -427,14 +409,11 @@ const AdvancedSearch = () => {
                   href={news.sourceUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:text-blue-800 text-sm truncate max-w-md"
+                  className="text-cyan-400 hover:underline text-sm truncate max-w-md"
                 >
                   {news.sourceUrl}
                 </a>
-                <a
-                  href={`/news/${news.id}`}
-                  className="text-blue-600 hover:text-blue-800 text-sm font-medium"
-                >
+                <a href={`/news/${news.id}`} className="text-cyan-400 hover:text-cyan-300 text-sm font-medium">
                   View Details →
                 </a>
               </div>

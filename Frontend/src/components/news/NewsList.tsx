@@ -143,7 +143,7 @@ const NewsList = () => {
         </div>
         <button
           onClick={handleRefresh}
-          className="btn-secondary flex items-center space-x-2"
+          className="px-4 py-2 border border-red-400/40 rounded-md hover:bg-red-500/10 flex items-center space-x-2"
         >
           <RefreshCw className="h-4 w-4" />
           <span>Try Again</span>
@@ -161,7 +161,7 @@ const NewsList = () => {
         </p>
         <button
           onClick={handleRefresh}
-          className="btn-secondary flex items-center space-x-2"
+          className="px-4 py-2 border border-cyan-500/40 rounded-md hover:bg-cyan-500/10 flex items-center space-x-2 mx-auto"
         >
           <RefreshCw className="h-4 w-4" />
           <span>Refresh</span>
@@ -181,7 +181,7 @@ const NewsList = () => {
           <button
             onClick={handleRefresh}
             disabled={refreshing}
-            className="btn-secondary flex items-center space-x-2 disabled:opacity-50"
+            className="px-3 py-1.5 border border-cyan-500/40 rounded-md hover:bg-cyan-500/10 flex items-center space-x-2 disabled:opacity-50"
           >
             <RefreshCw className={`h-4 w-4 ${refreshing ? 'animate-spin' : ''}`} />
             <span>{refreshing ? 'Refreshing...' : 'Refresh'}</span>

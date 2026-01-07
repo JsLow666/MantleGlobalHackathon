@@ -1,44 +1,74 @@
 import { Link } from 'react-router-dom';
-import { Newspaper, Plus, Info, BarChart3, Search, Activity, Vote } from 'lucide-react';
+import { Newspaper, Plus, Info, Search, Activity, Vote } from 'lucide-react';
 import ConnectWallet from '../wallet/ConnectWallet';
 
 const Header = () => {
   return (
-    <header className="bg-white shadow-sm border-b">
-      <div className="container mx-auto px-4 py-4">
+    <header className="sticky top-0 z-50 border-b border-cyan-500/20 bg-black/70 backdrop-blur-xl shadow-[0_0_30px_rgba(0,255,255,0.15)]">
+      <div className="max-w-7xl mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <Link to="/dashboard" className="flex items-center space-x-2">
-            <Newspaper className="h-8 w-8 text-blue-600" />
-            <span className="text-xl font-bold text-gray-900">ProofFeed</span>
+          {/* Logo */}
+          <Link to="/dashboard" className="flex items-center space-x-3 group">
+            <Newspaper className="h-8 w-8 text-cyan-400 group-hover:rotate-6 transition-transform" />
+            <span className="text-xl font-bold tracking-widest text-cyan-400">
+              PROOFFEED
+            </span>
           </Link>
 
-          <nav className="hidden md:flex items-center space-x-6">
-            <Link to="/dashboard" className="text-gray-600 hover:text-gray-900 transition-colors">
-              Home
+          {/* Navigation */}
+          <nav className="hidden md:flex items-center space-x-6 text-sm tracking-wider">
+            <Link
+              to="/dashboard"
+              className="text-cyan-300/70 hover:text-cyan-400 transition"
+            >
+              HOME
             </Link>
-            <Link to="/submit" className="flex items-center space-x-1 text-gray-600 hover:text-gray-900 transition-colors">
+
+            <Link
+              to="/submit"
+              className="flex items-center space-x-1 text-cyan-300/70 hover:text-cyan-400 transition"
+            >
               <Plus className="h-4 w-4" />
-              <span>Submit News</span>
+              <span>SUBMIT</span>
             </Link>
-            <Link to="/search" className="flex items-center space-x-1 text-gray-600 hover:text-gray-900 transition-colors">
+
+            <Link
+              to="/search"
+              className="flex items-center space-x-1 text-cyan-300/70 hover:text-cyan-400 transition"
+            >
               <Search className="h-4 w-4" />
-              <span>Search</span>
+              <span>SEARCH</span>
             </Link>
-            <Link to="/performance" className="flex items-center space-x-1 text-gray-600 hover:text-gray-900 transition-colors">
+
+            <Link
+              to="/performance"
+              className="flex items-center space-x-1 text-cyan-300/70 hover:text-cyan-400 transition"
+            >
               <Activity className="h-4 w-4" />
-              <span>Performance</span>
+              <span>STATS</span>
             </Link>
-            <Link to="/governance" className="flex items-center space-x-1 text-gray-600 hover:text-gray-900 transition-colors">
+
+            <Link
+              to="/governance"
+              className="flex items-center space-x-1 text-cyan-300/70 hover:text-cyan-400 transition"
+            >
               <Vote className="h-4 w-4" />
-              <span>Governance</span>
+              <span>GOVERN</span>
             </Link>
-            <Link to="/about" className="flex items-center space-x-1 text-gray-600 hover:text-gray-900 transition-colors">
+
+            <Link
+              to="/about"
+              className="flex items-center space-x-1 text-cyan-300/70 hover:text-cyan-400 transition"
+            >
               <Info className="h-4 w-4" />
-              <span>About</span>
+              <span>ABOUT</span>
             </Link>
           </nav>
 
-          <ConnectWallet />
+          {/* Wallet */}
+          <div className="ml-4">
+            <ConnectWallet />
+          </div>
         </div>
       </div>
     </header>

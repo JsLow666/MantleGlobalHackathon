@@ -100,8 +100,8 @@ const SubmitNewsForm = () => {
 
   if (!account) {
     return (
-      <div className="max-w-2xl mx-auto bg-yellow-50 border border-yellow-200 rounded-md p-6">
-        <div className="flex items-center space-x-2 text-yellow-800">
+      <div className="max-w-2xl mx-auto bg-yellow-500/10 border border-yellow-400/30 rounded-xl p-6 backdrop-blur">
+        <div className="flex items-center space-x-2 text-yellow-300">
           <AlertCircle className="h-5 w-5" />
           <span>Please connect your wallet to submit news.</span>
         </div>
@@ -111,8 +111,8 @@ const SubmitNewsForm = () => {
 
   if (!isVerified) {
     return (
-      <div className="max-w-2xl mx-auto bg-orange-50 border border-orange-200 rounded-md p-6">
-        <div className="flex items-center space-x-2 text-orange-800">
+      <div className="max-w-2xl mx-auto bg-orange-500/10 border border-orange-400/30 rounded-xl p-6 backdrop-blur">
+        <div className="flex items-center space-x-2 text-orange-300">
           <AlertCircle className="h-5 w-5" />
           <span>Please verify your identity with ZK proof before submitting news.</span>
         </div>
@@ -121,72 +121,77 @@ const SubmitNewsForm = () => {
   }
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-6">
-      <form className="space-y-6">
+    <div className="max-w-2xl mx-auto bg-black/40 backdrop-blur-xl border border-cyan-500/20 rounded-2xl shadow-[0_0_40px_rgba(34,211,238,0.15)] p-8">
+      <form className="space-y-8">
+        {/* Title */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-300 mb-2">
             News Title
           </label>
           <input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Enter news title..."
+            placeholder="Enter news headline…"
             maxLength={200}
             disabled={isAnalyzing || isSubmitting}
+            className="w-full px-4 py-3 rounded-lg bg-black/60 border border-gray-700 text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500"
           />
         </div>
 
+        {/* Content */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-300 mb-2">
             News Content
           </label>
           <textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}
             rows={6}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Paste the full news article content..."
             maxLength={10000}
             disabled={isAnalyzing || isSubmitting}
+            placeholder="Paste full article content for AI verification…"
+            className="w-full px-4 py-3 rounded-lg bg-black/60 border border-gray-700 text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500"
           />
         </div>
 
+        {/* Source */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-300 mb-2">
             Source URL
           </label>
           <input
             type="url"
             value={sourceUrl}
             onChange={(e) => setSourceUrl(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="https://..."
             disabled={isAnalyzing || isSubmitting}
+            placeholder="https://news-source.com/article"
+            className="w-full px-4 py-3 rounded-lg bg-black/60 border border-gray-700 text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500"
           />
         </div>
 
+        {/* Error */}
         {error && (
-          <div className="bg-red-50 border border-red-200 rounded-md p-4">
-            <div className="flex items-center space-x-2 text-red-800">
+          <div className="bg-red-500/10 border border-red-400/30 rounded-lg p-4">
+            <div className="flex items-center space-x-2 text-red-300">
               <AlertCircle className="h-5 w-5" />
               <span>{error}</span>
             </div>
           </div>
         )}
 
+        {/* Analyze */}
         {!analysis && (
           <button
             type="button"
             onClick={handleAnalyze}
             disabled={isAnalyzing || !title || !content || !sourceUrl}
-            className="w-full btn-primary flex items-center justify-center disabled:opacity-50"
+            className="w-full py-3 rounded-xl font-semibold bg-gradient-to-r from-cyan-500 to-fuchsia-500 text-black hover:opacity-90 transition disabled:opacity-40 flex items-center justify-center"
           >
             {isAnalyzing ? (
               <>
                 <Loader2 className="h-4 w-4 animate-spin mr-2" />
-                Analyzing with AI...
+                AI Analyzing…
               </>
             ) : (
               'Analyze with AI'
@@ -194,27 +199,33 @@ const SubmitNewsForm = () => {
           </button>
         )}
 
+        {/* Analysis Result */}
         {analysis && (
-          <div className="bg-blue-50 border border-blue-200 rounded-md p-4">
-            <div className="flex items-center justify-between mb-3">
-              <h3 className="font-medium text-blue-900">AI Analysis Result</h3>
-              <div className="flex items-center space-x-1">
-                <CheckCircle className="h-4 w-4 text-green-600" />
-                <span className="text-sm text-green-700">Ready to submit</span>
+          <div className="border border-cyan-400/30 rounded-xl p-6 bg-cyan-500/5">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="font-semibold text-cyan-300">
+                AI Validation Result
+              </h3>
+              <div className="flex items-center space-x-1 text-green-400">
+                <CheckCircle className="h-4 w-4" />
+                <span className="text-sm">Ready</span>
               </div>
             </div>
 
-            <div className="space-y-2 text-sm">
-              <p className="text-blue-800">
-                <span className="font-medium">Score:</span> {analysis.analysis.score}/100
+            <div className="space-y-2 text-sm text-gray-300">
+              <p>
+                <span className="font-medium text-gray-400">Score:</span>{' '}
+                {analysis.analysis.score}/100
               </p>
-              <p className="text-blue-800">
-                <span className="font-medium">Verdict:</span> {analysis.analysis.verdict}
+              <p>
+                <span className="font-medium text-gray-400">Verdict:</span>{' '}
+                {analysis.analysis.verdict}
               </p>
-              <p className="text-blue-800">
-                <span className="font-medium">Confidence:</span> {analysis.analysis.confidence}%
+              <p>
+                <span className="font-medium text-gray-400">Confidence:</span>{' '}
+                {analysis.analysis.confidence}%
               </p>
-              <p className="text-blue-800 text-xs mt-2">
+              <p className="text-xs text-gray-400 mt-2">
                 {analysis.analysis.explanation}
               </p>
             </div>
@@ -223,12 +234,12 @@ const SubmitNewsForm = () => {
               type="button"
               onClick={handleSubmit}
               disabled={isSubmitting}
-              className="mt-4 w-full btn-primary flex items-center justify-center disabled:opacity-50"
+              className="mt-6 w-full py-3 rounded-xl font-semibold bg-gradient-to-r from-green-400 to-emerald-500 text-black hover:opacity-90 transition disabled:opacity-40 flex items-center justify-center"
             >
               {isSubmitting ? (
                 <>
                   <Loader2 className="h-4 w-4 animate-spin mr-2" />
-                  Submitting to Blockchain...
+                  Submitting On-chain…
                 </>
               ) : (
                 'Submit to Blockchain'

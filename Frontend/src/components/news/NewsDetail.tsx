@@ -166,11 +166,12 @@ const NewsDetail = ({ newsId }: NewsDetailProps) => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-5xl mx-auto px-4 py-8 bg-gray-900 min-h-screen">
+      {/* Header */}
       <div className="mb-6 flex items-center justify-between">
         <Link
           to="/dashboard"
-          className="inline-flex items-center space-x-2 text-blue-600 hover:text-blue-800"
+          className="inline-flex items-center space-x-2 text-blue-400 hover:text-blue-600 font-medium"
         >
           <ArrowLeft className="h-4 w-4" />
           <span>Back to Home</span>
@@ -185,59 +186,79 @@ const NewsDetail = ({ newsId }: NewsDetailProps) => {
         </button>
       </div>
 
-      <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-        <div className="flex items-start justify-between mb-4">
-          <h1 className="text-2xl font-bold text-gray-900 pr-4">{news.title}</h1>
+      {/* Main Card */}
+      <div className="bg-gray-800 rounded-2xl shadow-lg p-6 mb-6">
+        {/* Title & Verdict */}
+        <div className="flex flex-col md:flex-row md:items-start justify-between mb-6 gap-4">
+          <h1 className="text-3xl font-bold text-white pr-4 break-words">
+            {news.title}
+          </h1>
           <VerdictBadge verdict={news.verdict} />
         </div>
 
-        <div className="space-y-4 mb-6">
-          <div className="bg-gray-50 rounded-md p-4">
-            {news.fullContent ? (
-              <div className="text-gray-700 leading-relaxed whitespace-pre-wrap">
-                {news.fullContent}
-              </div>
-            ) : (
-              <div className="text-gray-500 italic text-center py-8">
-                <AlertCircle className="h-8 w-8 mx-auto mb-2 text-gray-400" />
-                <p>Full article content is not available.</p>
-                <p className="text-sm mt-1">Content may have been submitted before this feature was implemented.</p>
-              </div>
-            )}
+        {/* Full Content */}
+        <div className="bg-gray-700 rounded-xl p-6 mb-6 shadow-inner">
+          {news.fullContent ? (
+            <div className="text-gray-200 leading-relaxed whitespace-pre-wrap">
+              {news.fullContent}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <AlertCircle className="h-10 w-10 mx-auto mb-3 text-gray-400" />
+              <p className="text-gray-400 italic">Full article content is not available.</p>
+              <p className="text-sm mt-1 text-gray-500">
+                Content may have been submitted before this feature was implemented.
+              </p>
+            </div>
+          )}
+        </div>
+
+        {/* Scores & Metadata */}
+        <div className="grid md:grid-cols-2 gap-6 mb-6 text-gray-200">
+          {/* AI + Community Score */}
+          <div className="space-y-3">
+            <div className="bg-gray-700 p-4 rounded-xl shadow hover:shadow-md transition">
+              <p className="text-lg font-semibold text-blue-400">
+                Credibility Score: {news.dynamicScore.dynamicScore}/100
+              </p>
+              <p className="text-xs text-blue-300 mt-1">
+                AI: {news.dynamicScore.aiScore}/100 • Community: {news.dynamicScore.communityScore}/100
+              </p>
+              <p className={`text-xs mt-1 font-medium ${getConfidenceColor(news.dynamicScore.confidence)}`}>
+                {getConfidenceLabel(news.dynamicScore.confidence)}
+              </p>
+            </div>
+            <p><strong>Submitted by:</strong> {news.submitter}</p>
+            <p><strong>Submitted on:</strong> {formatTimestamp(news.timestamp)}</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600">
-            <div className="space-y-2">
-              <div className="bg-blue-50 p-3 rounded-md">
-                <p className="text-lg font-semibold text-blue-800">
-                  Credibility Score: {news.dynamicScore.dynamicScore}/100
-                </p>
-                <p className="text-xs text-blue-600 mt-1">
-                  AI: {news.dynamicScore.aiScore}/100 • Community: {news.dynamicScore.communityScore}/100
-                </p>
-                <p className={`text-xs mt-1 font-medium ${getConfidenceColor(news.dynamicScore.confidence)}`}>
-                  {getConfidenceLabel(news.dynamicScore.confidence)}
-                </p>
+          {/* Community Votes + Info */}
+          <div className="space-y-3">
+            <div className="bg-gray-700 p-4 rounded-xl shadow hover:shadow-md transition">
+              <p className="text-sm font-medium text-gray-200">Community Votes</p>
+              <div className="flex justify-between text-xs mt-2">
+                <span className="text-green-400">Real: {news.voteCounts.real}</span>
+                <span className="text-red-400">Fake: {news.voteCounts.fake}</span>
+                <span className="text-yellow-400">Uncertain: {news.voteCounts.uncertain}</span>
               </div>
-              <p><strong>Submitted by:</strong> {news.submitter}</p>
-              <p><strong>Submitted on:</strong> {formatTimestamp(news.timestamp)}</p>
+              <p className="text-xs text-gray-400 mt-1">Total votes: {news.voteCounts.total}</p>
             </div>
-            <div className="space-y-2">
-              <div className="bg-gray-50 p-3 rounded-md">
-                <p className="text-sm font-medium text-gray-800">Community Votes</p>
-                <div className="flex justify-between text-xs mt-1">
-                  <span className="text-green-600">Real: {news.voteCounts.real}</span>
-                  <span className="text-red-600">Fake: {news.voteCounts.fake}</span>
-                  <span className="text-yellow-600">Uncertain: {news.voteCounts.uncertain}</span>
-                </div>
-                <p className="text-xs text-gray-500 mt-1">Total votes: {news.voteCounts.total}</p>
-              </div>
-              <p><strong>Source:</strong> <a href={news.sourceUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline break-all">{news.sourceUrl}</a></p>
-              <p><strong>News ID:</strong> #{news.id}</p>
-            </div>
+            <p>
+              <strong>Source:</strong>{" "}
+              <a
+                href={news.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:underline break-all"
+              >
+                {news.sourceUrl}
+              </a>
+            </p>
+            <p><strong>News ID:</strong> #{news.id}</p>
           </div>
         </div>
 
+        {/* Voting Panel */}
         <VotePanel newsId={news.id} />
       </div>
     </div>

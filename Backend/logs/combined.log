@@ -479,3 +479,60 @@
 {"level":"info","message":"✨ Architecture: Backend provides Gemini AI analysis only","timestamp":"2026-01-01 16:52:00"}
 {"level":"info","message":"   💰 Users pay gas when submitting to blockchain","timestamp":"2026-01-01 16:52:00"}
 {"level":"info","message":"   🔥 Backend has NO gas costs","timestamp":"2026-01-01 16:52:00"}
+{"level":"info","message":"📂 Loaded 2 stored content items from disk","timestamp":"2026-01-07 16:49:56"}
+{"level":"info","message":"🚀 ProofFeed Backend v2.0 running on port 3000","timestamp":"2026-01-07 16:49:56"}
+{"level":"info","message":"📍 Environment: development","timestamp":"2026-01-07 16:49:56"}
+{"level":"info","message":"🤖 AI Provider: Google Gemini 1.5 Flash","timestamp":"2026-01-07 16:49:56"}
+{"level":"info","message":"","timestamp":"2026-01-07 16:49:56"}
+{"level":"info","message":"✨ Architecture: Backend provides Gemini AI analysis only","timestamp":"2026-01-07 16:49:56"}
+{"level":"info","message":"   💰 Users pay gas when submitting to blockchain","timestamp":"2026-01-07 16:49:56"}
+{"level":"info","message":"   🔥 Backend has NO gas costs","timestamp":"2026-01-07 16:49:56"}
+{"ip":"::1","level":"info","message":"POST /api/analyze","timestamp":"2026-01-07 16:52:39","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"}
+{"contentLength":261,"level":"info","message":"📥 Received AI analysis request","sourceUrl":"https://www.theguardian.com/us-news/2026/jan/06/trump-greenland-control-us-military","timestamp":"2026-01-07 16:52:39","title":"White House says using US military is ‘always an option’ for acquiring Greenland"}
+{"level":"info","message":"🤖 Starting AI analysis...","timestamp":"2026-01-07 16:52:39"}
+{"contentLength":261,"level":"info","message":"🤖 Starting AI analysis with Claude...","sourceUrl":"https://www.theguardian.com/us-news/2026/jan/06/trump-greenland-control-us-military","timestamp":"2026-01-07 16:52:39","title":"White House says using US military is ‘always an option’ for acquiring Greenland"}
+{"level":"warn","message":"NEWS_API_KEY not set, skipping external news fetch","timestamp":"2026-01-07 16:52:39"}
+{"confidence":20,"level":"info","message":"✅ AI analysis completed","score":26,"timestamp":"2026-01-07 16:52:51","verdict":"likely_fake"}
+{"confidence":20,"level":"info","message":"✅ AI analysis complete","score":26,"timestamp":"2026-01-07 16:52:51","verdict":"likely_fake"}
+{"contentHash":"0xfda49e5c07f02195ecefb1f9de308653d14588c89e154c844b970ee72bb0b39e","level":"info","message":"📝 Created content hash","timestamp":"2026-01-07 16:52:51"}
+{"hash":"0xfda49e5c07f02195ecefb1f9de308653d14588c89e154c844b970ee72bb0b39e","level":"info","message":"💾 Content stored and persisted","timestamp":"2026-01-07 16:52:51","title":"White House says using US military is ‘always an option’ for acquiring Greenland"}
+{"level":"info","message":"📂 Loaded 3 stored content items from disk","timestamp":"2026-01-07 16:52:57"}
+{"level":"info","message":"🚀 ProofFeed Backend v2.0 running on port 3000","timestamp":"2026-01-07 16:52:57"}
+{"level":"info","message":"📍 Environment: development","timestamp":"2026-01-07 16:52:57"}
+{"level":"info","message":"🤖 AI Provider: Google Gemini 1.5 Flash","timestamp":"2026-01-07 16:52:57"}
+{"level":"info","message":"","timestamp":"2026-01-07 16:52:57"}
+{"level":"info","message":"✨ Architecture: Backend provides Gemini AI analysis only","timestamp":"2026-01-07 16:52:57"}
+{"level":"info","message":"   💰 Users pay gas when submitting to blockchain","timestamp":"2026-01-07 16:52:57"}
+{"level":"info","message":"   🔥 Backend has NO gas costs","timestamp":"2026-01-07 16:52:57"}
+{"ip":"::1","level":"info","message":"GET /api/analyze/content/0xfda49e5c07f02195ecefb1f9de308653d14588c89e154c844b970ee72bb0b39e","timestamp":"2026-01-07 16:53:35","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"}
+{"hash":"0xfda49e5c07f02195ecefb1f9de308653d14588c89e154c844b970ee72bb0b39e","level":"info","message":"🔍 Retrieving content by hash","timestamp":"2026-01-07 16:53:35"}
+{"hash":"0xfda49e5c07f02195ecefb1f9de308653d14588c89e154c844b970ee72bb0b39e","level":"info","message":"📖 Content retrieved","timestamp":"2026-01-07 16:53:35"}
+{"ip":"::1","level":"info","message":"GET /api/analyze/content/0xfda49e5c07f02195ecefb1f9de308653d14588c89e154c844b970ee72bb0b39e","timestamp":"2026-01-07 16:53:35","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"}
+{"hash":"0xfda49e5c07f02195ecefb1f9de308653d14588c89e154c844b970ee72bb0b39e","level":"info","message":"🔍 Retrieving content by hash","timestamp":"2026-01-07 16:53:35"}
+{"hash":"0xfda49e5c07f02195ecefb1f9de308653d14588c89e154c844b970ee72bb0b39e","level":"info","message":"📖 Content retrieved","timestamp":"2026-01-07 16:53:35"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","timestamp":"2026-01-07 16:54:39"}
+{"level":"info","message":"📂 Loaded 3 stored content items from disk","timestamp":"2026-01-07 16:57:54"}
+{"level":"info","message":"🚀 ProofFeed Backend v2.0 running on port 3000","timestamp":"2026-01-07 16:57:54"}
+{"level":"info","message":"📍 Environment: development","timestamp":"2026-01-07 16:57:54"}
+{"level":"info","message":"🤖 AI Provider: Google Gemini 1.5 Flash","timestamp":"2026-01-07 16:57:54"}
+{"level":"info","message":"","timestamp":"2026-01-07 16:57:54"}
+{"level":"info","message":"✨ Architecture: Backend provides Gemini AI analysis only","timestamp":"2026-01-07 16:57:54"}
+{"level":"info","message":"   💰 Users pay gas when submitting to blockchain","timestamp":"2026-01-07 16:57:54"}
+{"level":"info","message":"   🔥 Backend has NO gas costs","timestamp":"2026-01-07 16:57:54"}
+{"ip":"::1","level":"info","message":"POST /api/analyze","timestamp":"2026-01-07 16:58:33","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"}
+{"contentLength":254,"level":"info","message":"📥 Received AI analysis request","sourceUrl":"https://www.aljazeera.com/news/2026/1/7/russia-ukraine-war-list-of-key-events-day-1413","timestamp":"2026-01-07 16:58:33","title":"Coalition nations back security guarantees for Ukraine"}
+{"level":"info","message":"🤖 Starting AI analysis...","timestamp":"2026-01-07 16:58:33"}
+{"contentLength":254,"level":"info","message":"🤖 Starting AI analysis with Claude...","sourceUrl":"https://www.aljazeera.com/news/2026/1/7/russia-ukraine-war-list-of-key-events-day-1413","timestamp":"2026-01-07 16:58:33","title":"Coalition nations back security guarantees for Ukraine"}
+{"level":"warn","message":"NEWS_API_KEY not set, skipping external news fetch","timestamp":"2026-01-07 16:58:33"}
+{"confidence":60,"level":"info","message":"✅ AI analysis completed","score":45,"timestamp":"2026-01-07 16:58:48","verdict":"uncertain"}
+{"confidence":60,"level":"info","message":"✅ AI analysis complete","score":45,"timestamp":"2026-01-07 16:58:48","verdict":"uncertain"}
+{"contentHash":"0x8f0d92841f4b36b17390ae06672648f50bab77750e14ebb4ef312282ec0c343f","level":"info","message":"📝 Created content hash","timestamp":"2026-01-07 16:58:48"}
+{"hash":"0x8f0d92841f4b36b17390ae06672648f50bab77750e14ebb4ef312282ec0c343f","level":"info","message":"💾 Content stored and persisted","timestamp":"2026-01-07 16:58:48","title":"Coalition nations back security guarantees for Ukraine"}
+{"level":"info","message":"📂 Loaded 4 stored content items from disk","timestamp":"2026-01-07 16:58:51"}
+{"level":"info","message":"🚀 ProofFeed Backend v2.0 running on port 3000","timestamp":"2026-01-07 16:58:52"}
+{"level":"info","message":"📍 Environment: development","timestamp":"2026-01-07 16:58:52"}
+{"level":"info","message":"🤖 AI Provider: Google Gemini 1.5 Flash","timestamp":"2026-01-07 16:58:52"}
+{"level":"info","message":"","timestamp":"2026-01-07 16:58:52"}
+{"level":"info","message":"✨ Architecture: Backend provides Gemini AI analysis only","timestamp":"2026-01-07 16:58:52"}
+{"level":"info","message":"   💰 Users pay gas when submitting to blockchain","timestamp":"2026-01-07 16:58:52"}
+{"level":"info","message":"   🔥 Backend has NO gas costs","timestamp":"2026-01-07 16:58:52"}

@@ -19,9 +19,20 @@ function AppContent() {
   const isLandingOrAuth = location.pathname === '/' || location.pathname === '/auth';
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="relative min-h-screen text-cyan-300 bg-gradient-to-br from-black via-slate-900 to-black overflow-hidden">
+      {/* Global ambient glow */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,255,255,0.10),_transparent_40%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom,_rgba(255,0,255,0.08),_transparent_45%)]" />
+
       {!isLandingOrAuth && <Header />}
-      <main className={isLandingOrAuth ? '' : 'container mx-auto px-4 py-8'}>
+
+      <main
+        className={
+          isLandingOrAuth
+            ? 'relative z-10'
+            : 'relative z-10 max-w-7xl mx-auto px-4 py-8'
+        }
+      >
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/auth" element={<Auth />} />
@@ -34,7 +45,9 @@ function AppContent() {
           <Route path="/governance" element={<Governance />} />
         </Routes>
       </main>
+
       {!isLandingOrAuth && <Footer />}
+
       <NotificationToast />
     </div>
   );
