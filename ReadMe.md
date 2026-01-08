@@ -175,6 +175,8 @@ Built on Mantle, it serves as an open experiment in creating verifiable credibil
 
 Follow these steps to run the ProofFeed project on your machine:
 
+Update the Gemini API key in Backend/.env
+
 - cd Frontend
 - npm install
 - npm run dev
